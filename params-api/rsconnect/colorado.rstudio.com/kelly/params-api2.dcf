@@ -1,0 +1,14 @@
+name: params-api2
+title: params-api
+username: kelly
+account: kelly
+server: colorado.rstudio.com
+hostUrl: https://colorado.rstudio.com/rsc/__api__
+appId: 10119
+bundleId: 49685
+url: https://colorado.rstudio.com/rsc/content/b6b0136a-5e9b-4d11-bd94-3380fdba3666/
+when: 1635109897.19147
+lastSyncTime: 1635109897.19148
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: Hospital 34-Monthly.html|hospital-daily.html|Hospital-none.html

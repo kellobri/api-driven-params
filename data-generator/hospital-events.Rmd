@@ -1,0 +1,46 @@
+---
+title: "Hospital Data"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Generate Sample Data for Parameterized Hospital Event Report 
+
+```{r}
+event_types <- c('medical complication', 'surgical complication', 'perinatal problem', 'equipment problem', 'medication error', 'diagnostic error', 'admission/discharge issue', 'environmental hazard', 'behavior problem', 'transfusion problem')
+
+hospitals <- c("Central Hospital",
+               "Military Hospital",
+               "Port Hospital",
+               "St. Mark's Maternity Hospital (SMMH)")
+
+severity <- c('Level 1', 'Level 2', 'Level 3')
+
+events_table <- sample(event_types, 10000, replace = TRUE, prob = c(0.2, 0.1, 0.05, 0.1, 0.15, 0.15, 0.05, 0.05, 0.05, 0.05))
+
+hospitals_table <- sample(hospitals, 10000, replace = TRUE, prob = c(0.4, 0.2, 0.3, 0.1))
+
+severity_table <- sample(severity, 10000, replace = TRUE, prob = c(0.65, 0.3, 0.05))
+
+hospital_events <- tibble::tibble(hospitals_table, events_table, severity_table)
+```
+
+```{r}
+prop.table(summary(as.factor(hospitals_table)))
+```
+
+```{r}
+prop.table(summary(as.factor(events_table)))
+```
+
+## Create a Pin
+
+```{r}
+library(pins)
+board_rsconnect(server = "https://colorado.rstudio.com/rsc/") %>%
+  pin_write(hospital_events)
+```
+

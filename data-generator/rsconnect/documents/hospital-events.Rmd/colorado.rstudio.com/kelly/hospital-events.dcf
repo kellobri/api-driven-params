@@ -1,0 +1,13 @@
+name: hospital-events
+title: hospital-events
+username: kelly
+account: kelly
+server: colorado.rstudio.com
+hostUrl: https://colorado.rstudio.com/rsc/__api__
+appId: 10123
+bundleId: 49688
+url: https://colorado.rstudio.com/rsc/content/6f966dcd-af8e-4708-9747-cd84f746f40e/
+when: 1635123083.03949
+lastSyncTime: 1635123083.0395
+asMultiple: FALSE
+asStatic: FALSE

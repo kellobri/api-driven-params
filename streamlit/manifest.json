@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "metadata": {
+    "appmode": "python-streamlit",
+    "entrypoint": "app"
+  },
+  "locale": "en_US.UTF-8",
+  "python": {
+    "version": "3.8.1",
+    "package_manager": {
+      "name": "pip",
+      "version": "21.2.4",
+      "package_file": "requirements.txt"
+    }
+  },
+  "files": {
+    "requirements.txt": {
+      "checksum": "cb75d0d5f92d528f8935a9f637ddb1dd"
+    },
+    "app.py": {
+      "checksum": "36f9e15aac3806fd1f4263af24f93bbf"
+    }
+  }
+}

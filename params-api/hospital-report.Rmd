@@ -1,0 +1,37 @@
+---
+title: "&nbsp;"
+output: html_document
+params:
+  hospital: 
+    label: "Town:"
+    value: Central Hospital
+    input: select
+    choices: [Central Hospital, Military Hospital, Port Hospital, St. Mark's Maternity Hospital (SMMH)]
+  report: 
+    label: "Report Type:"
+    value: Monthly
+    input: select
+    choices: [Weekly, Monthly, Annual]
+---
+
+# `r params$report` Status Report on `r params$hospital` 
+
+### Recorded outcomes of patients in `r params$hospital`
+
+```{r include = FALSE}
+# Motivating example from https://epirhandbook.com/en/reports-with-r-markdown.html#looping-reports
+
+library(pins)
+library(dplyr)
+data <- board_rsconnect(server = "rsc.radixu.com") %>% 
+  pin_read("kelly.obriant/outcomes") %>%
+  filter()
+
+```
+
+
+
+
+
+
+

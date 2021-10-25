@@ -1,0 +1,11 @@
+{
+    "https://rsc.radixu.com": {
+        "server_url": "https://rsc.radixu.com",
+        "filename": "/Users/kelly/Sol-Eng/knit-params/streamlit",
+        "app_url": "https://rsc.radixu.com/content/b192a680-822b-4e20-9e98-36d0d0236ff8/",
+        "app_id": 5235,
+        "app_guid": "b192a680-822b-4e20-9e98-36d0d0236ff8",
+        "title": "streamlit",
+        "app_mode": "python-streamlit"
+    }
+}

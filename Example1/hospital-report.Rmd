@@ -1,0 +1,68 @@
+---
+title: "&nbsp;"
+output: html_document
+params:
+  hospital: 
+    label: "Hospital:"
+    value: Central Hospital
+    input: select
+    choices: [Central Hospital, Military Hospital, Port Hospital, St. Mark's Maternity Hospital (SMMH)]
+  report: 
+    label: "Report Type:"
+    value: Last Year
+    input: select
+    choices: [Last Month, Last Year, Last Five Years]
+  severity:
+    label: "Include Level 3 Events?"
+    value: No
+    input: select
+    choices: [Yes, No]
+---
+
+# Incident EVR Report for `r params$hospital` 
+
+An event is any occurrence that is not consistent with routine operations or that potentially results in injury, harm, or loss to any patient, employee, or visitor. Events may also include a major violation of established procedure or a disturbance or unfavorable situation that could disrupt hospital functions.
+
+### Frequency of Events Recorded over the `r params$report`
+
+```{r include=FALSE}
+# Motivating example from https://epirhandbook.com/en/reports-with-r-markdown.html#looping-reports
+
+library(dplyr)
+library(pins)
+board <- board_rsconnect(server = "https://rsc.radixu.com")
+data <- pin_read(board, "kelly.obriant/hospital_events")
+
+low_sev <- c("Level 1", "Level 2")
+
+if (params$severity == "No"){
+  report_data <- data %>%
+    filter(hospitals_table == params$hospital) %>%
+    filter(severity_table %in% low_sev)
+} else {
+  report_data <- data %>%
+    filter(hospitals_table == params$hospital)
+}
+
+if (params$report == 'Last Year'){
+  report_data <- report_data[1:2000,]
+}
+
+if (params$report == 'Last Month'){
+  report_data <- report_data[1:200,]
+}
+```
+
+```{r echo=FALSE}
+library(ggplot2)
+
+ggplot(report_data, aes(y=events_table, fill=severity_table)) +
+  geom_bar()
+```
+
+
+
+
+
+
+
