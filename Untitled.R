@@ -16,15 +16,3 @@ for(i in 1:length(hospitals)){
 
 
 
-library(tibble)
-outcomes <- tribble(
-  ~hospital, ~deaths, ~recoveries, ~no_outcome,
-  "Central Hospital", 45, 450, 200,
-  "Military Hospital", 50, 230, 100,
-  "Port Hospital", 12, 345, 90,
-  "St. Mark's Maternity Hospital (SMMH)", 6, 290, 80
-)
-
-library(pins)
-board_rsconnect(server = "rsc.radixu.com") %>%
-  pin_write(outcomes, access_type = "all")
