@@ -12,4 +12,4 @@ Contains the `hospital-events.Rmd` R Markdown document that is published to Conn
 
 ## `self-service-params`
 
-Contains `app.py`—the Self-service Streamlit app that generates a preview when creating a single variant. Leverages the `params-api` functionality, and can be used to create one or many variants per request.
+Contains `app.py`—the Self-service Streamlit app that generates a preview when creating a single variant. Leverages the `params-api` functionality, and can be used to create one variant per request.
